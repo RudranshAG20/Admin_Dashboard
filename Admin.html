@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --header-bg: #4caf50;
+      --sidebar-bg: #f4f4f4;
+      --footer-bg: #4caf50;
+      --link-color: purple;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --header-bg: #1f1f1f;
+      --sidebar-bg: #2c2c2c;
+      --footer-bg: #1f1f1f;
+      --link-color: #b19cd9;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: grid;
+      grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 60px 1fr 40px;
+      height: 100vh;
+      transition: all 0.3s ease-in-out;
+    }
+
+    header {
+      grid-area: header;
+      background-color: var(--header-bg);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header label {
+      font-size: 14px;
+      color: white;
+    }
+
+    aside {
+      grid-area: sidebar;
+      background-color: var(--sidebar-bg);
+      padding: 20px;
+    }
+
+    aside ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    aside ul li {
+      margin-bottom: 10px;
+    }
+
+    aside a {
+      text-decoration: none;
+      color: var(--link-color);
+    }
+
+    main {
+      grid-area: main;
+      padding: 20px;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: var(--footer-bg);
+      color: white;
+      text-align: center;
+      line-height: 40px;
+    }
+
+    input[type="checkbox"] {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <h1>Admin Dashboard</h1>
+    <label>
+      Dark Mode
+      <input type="checkbox" id="themeToggle" />
+    </label>
+  </header>
+
+  <aside>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Users</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <h2>Welcome, Admin!</h2>
+    <p>This is the main content area. Add charts, tables, or reports here.</p>
+  </main>
+
+  <footer>
+    © 2025 Admin Panel
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.setAttribute('data-theme', 'dark');
+      } else {
+        body.setAttribute('data-theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>
